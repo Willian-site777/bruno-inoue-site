@@ -100,8 +100,8 @@ h2{font-size:clamp(34px,4.6vw,52px)}
   background:repeating-conic-gradient(from 0deg at 50% 38%,rgba(255,255,255,.035) 0 1.2deg,transparent 1.2deg 7deg);
   -webkit-mask:radial-gradient(55% 60% at 50% 40%,#000 0%,transparent 75%);mask:radial-gradient(55% 60% at 50% 40%,#000 0%,transparent 75%)}
 .hero::after{ /* chão: funde a base da foto com o fundo */
-  content:"";position:absolute;left:0;right:0;bottom:0;height:22%;z-index:3;pointer-events:none;
-  background:linear-gradient(rgba(15,44,35,0),rgba(15,44,35,.92) 82%)}
+  content:"";position:absolute;left:0;right:0;bottom:0;height:16%;z-index:1;pointer-events:none;
+  background:linear-gradient(rgba(15,44,35,0),rgba(15,44,35,.9) 85%)}
 .hero-stage{position:relative;width:min(1240px,100% - 48px);margin-inline:auto;min-height:inherit}
 
 /* título gigante (estilo da referência) */
@@ -112,15 +112,17 @@ h2{font-size:clamp(34px,4.6vw,52px)}
 
 /* Bruno recortado, na frente do título */
 .person{position:absolute;left:50%;bottom:0;translate:-50% 0;z-index:2;height:min(76vh,660px,44vw);aspect-ratio:736/867}
-.person img{width:100%;height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 60px rgba(0,0,0,.35))}
-.hello{position:absolute;right:92%;top:30%;font:italic 30px/1 var(--f-serif);color:var(--gold);transform:rotate(-8deg);white-space:nowrap;z-index:4}
+.person::after{content:"";position:absolute;left:-12%;right:-12%;bottom:0;height:26%;z-index:1;pointer-events:none;background:linear-gradient(rgba(15,44,35,0),var(--brand-deep) 88%)}
+.person img{position:relative;z-index:0;width:100%;height:100%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 60px rgba(0,0,0,.35))}
+.hello{position:absolute;right:90%;top:11%;font:italic 30px/1 var(--f-serif);color:var(--gold);transform:rotate(-8deg);white-space:nowrap;z-index:4}
 .hello svg{display:block;width:74px;margin:8px 0 0 auto;color:var(--gold)}
 
 /* cards de diferencial — dentro da área da foto */
 .float{position:absolute;z-index:5;display:flex;align-items:center;gap:12px;padding:11px 16px 11px 11px;background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 18px 40px -18px rgba(0,0,0,.5);width:max-content;max-width:236px}
 .float b{display:block;font:600 14px/1.2 var(--f-body)}
-.float span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:2px}
-.float .chip{width:40px;height:40px;border-radius:12px}
+.float div span{display:block;font-size:12.5px;color:var(--muted);line-height:1.35;margin-top:2px}
+.float .chip{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;margin:0}
+.float .chip svg{display:block;width:20px;height:20px}
 .f1{left:4%;bottom:27%}
 .f2{right:3%;bottom:13%}
 
@@ -247,7 +249,7 @@ h2{font-size:clamp(34px,4.6vw,52px)}
 .info li{list-style:none;display:flex;gap:18px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--line)}
 .info li:last-child{border:0}
 .info b{display:block;font-weight:600;margin-bottom:2px}
-.info span,.info a{color:var(--muted);font-size:15px}
+.info div span,.info div a{color:var(--muted);font-size:15px}
 .info a:hover{color:var(--brand)}
 .cta-card{position:relative;overflow:hidden;background:var(--brand);color:#fff;border-radius:22px;padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:380px}
 .cta-card h3{font-size:clamp(32px,3.6vw,44px);max-width:13ch}
@@ -300,7 +302,6 @@ h2{font-size:clamp(34px,4.6vw,52px)}
   .hero-stage{display:flex;flex-direction:column;align-items:center;min-height:0}
   .mega{position:relative;left:auto;top:auto;translate:none;font-size:clamp(52px,16vw,120px)}
   .person{position:relative;left:auto;translate:none;height:auto;width:min(440px,96%);margin-top:-9vw}
-  .person::after{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:24%;background:linear-gradient(rgba(15,44,35,0),var(--brand-deep) 85%);z-index:3}
   .hello{display:none}
   .f1{left:-2%;bottom:22%}
   .f2{right:-2%;bottom:6%}
@@ -337,7 +338,7 @@ h2{font-size:clamp(34px,4.6vw,52px)}
   .proof div{padding-right:16px;margin-right:16px}
   .proof strong{font-size:19px}
   .float{max-width:200px;padding:9px 12px 9px 9px}
-  .float b{font-size:13px}.float span{font-size:11.5px}
+  .float b{font-size:13px}.float div span{font-size:11.5px}
   .float .chip{width:34px;height:34px}
   .spec-l{padding:72px 20px}
   .metrics div{padding-right:16px;margin-right:16px}
@@ -399,7 +400,7 @@ h2{font-size:clamp(34px,4.6vw,52px)}
     </div>
 
     <div class="seal" aria-hidden="true">
-      <svg viewBox="0 0 128 128"><defs><path id="circ" d="M64 64m-51 0a51 51 0 1 1 102 0a51 51 0 1 1-102 0"/></defs><text font-family="Poppins, sans-serif" font-weight="600" font-size="9.4" letter-spacing="2.6" fill="#fff"><textPath href="#circ">ONLINE · PRESENCIAL · UFRJ · ONLINE · PRESENCIAL · UFRJ ·</textPath></text></svg>
+      <svg viewBox="0 0 128 128"><defs><path id="circ" d="M64 64m-51 0a51 51 0 1 1 102 0a51 51 0 1 1-102 0"/></defs><text font-family="Poppins, sans-serif" font-weight="600" font-size="9.4" fill="#fff"><textPath href="#circ" textLength="318" lengthAdjust="spacing">ONLINE · PRESENCIAL · UFRJ · </textPath></text></svg>
       <div class="core">dieta<br>não é<br>castigo</div>
     </div>
 
